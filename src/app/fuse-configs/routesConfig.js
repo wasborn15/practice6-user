@@ -4,6 +4,7 @@ import ExampleConfig from 'app/main/example/ExampleConfig';
 import FuseLoading from '@fuse/core/FuseLoading';
 import Error404Page from 'app/main/404/Error404Page';
 import LoginConfig from '../auth/login/LoginConfig';
+import { authRoles } from '../auth';
 
 const routeConfigs = [LoginConfig, ExampleConfig];
 
@@ -13,6 +14,7 @@ const routes = [
     // The individual route configs which has auth option won't be overridden.
     ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
     {
+        auth: authRoles.admin,
         exact: true,
         path: '/',
         component: () => <Redirect to="/example" />,
