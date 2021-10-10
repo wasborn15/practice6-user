@@ -80,7 +80,7 @@ class JwtService extends FuseUtils.EventEmitter {
     signInWithToken = () => {
         return new Promise((resolve, reject) => {
             axios
-                .get('/api/auth/access-token', {
+                .get('/auth/me', {
                     data: {
                         access_token: this.getAccessToken(),
                     },
